@@ -4,8 +4,19 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, TextInput}
 import FL from './components/FlatList';
 import GB from './components/MainButton';
 import { styles } from './styles/Styles';
+import { useFonts } from '@use-expo/font';
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    'Montserrat': require('./assets/fonts/Montserrat.ttf')
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  let user = "Claudia";
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.space}>
@@ -17,7 +28,7 @@ export default function App() {
             source={require("./assets/grey.png")}
             style={styles.logo}
           />
-          <Text style={styles.profileText}> Bom dia, Ana</Text>
+          <Text style={styles.profileText}> Bom dia, { user }!</Text>
         </View>
 
         <View style={styles.dateStyle}>
@@ -25,7 +36,9 @@ export default function App() {
         </View>
         <FL/>
 
-        <View style={[styles.viewCenter]}>
+        <ScrollView
+  horizontal={true}
+  >
           <TouchableOpacity style={styles.button}>
           <GB/>
           </TouchableOpacity>
@@ -37,7 +50,7 @@ export default function App() {
             </TouchableOpacity>
             
           </View>
-        </View>
+        </ScrollView>
       </View>
 
       
