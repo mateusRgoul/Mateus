@@ -48,14 +48,17 @@ const DATA=[
 
 export default function(){
     return (
-        <View style={styles.listStyle}>
+        <View style={styles.ListStyle}>
             <FlatList
-                //numColumns={2}
                 horizontal={true}
                 data={DATA}
                 keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                //snapToAlignment={'start'}
+                //scrollEventThrottle={16}
+                //decelerationRate={'fast'}
                 renderItem={({ item }) => (
-                    <View style={styles.viewListStyle}>
+                    <View style={styles.calendarViewListStyle}>
                         <Text style={styles.dayText}>{item.info[0]}
                         {'\n'}
                         </Text>
