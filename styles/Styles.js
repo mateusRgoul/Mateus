@@ -23,9 +23,8 @@ export const styles = StyleSheet.create({
   },
   homeText: {
     fontFamily: 'MontserratBold',
-    fontSize: 15,
+    fontSize: 13,
     color: 'black',
-    //fontStyle: 'italic',
     marginTop: 40,
   },
   bookmark: {
@@ -37,7 +36,6 @@ export const styles = StyleSheet.create({
     marginTop: 11,
     width: 30,
     height: 30,
-    //marginRight: 3,
   },
   profile: {
     flexDirection: 'row',
@@ -52,8 +50,6 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   dateStyle: {
-    //justifyContent: 'center',  
-    //alignItems: 'center',
     marginTop: 10,
   },
   dateText: {
@@ -66,7 +62,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'Montserrat',
     fontSize: 16,
     color: '#858484',
-    //textAlign: 'center',
   },
   numberText: {
     fontFamily: 'MontserratBold',
@@ -75,7 +70,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   calendarViewListStyle: {
-    backgroundColor: 'white',
+    //backgroundColor: '#FFFFFF',
     width: 55,
     height: 100,
     marginHorizontal: 3,
@@ -86,73 +81,67 @@ export const styles = StyleSheet.create({
     verticalAlign: 'center',
   },
   ListStyle: {
-    alignItems: 'center',
-    marginBottom: 5
+    //alignItems: 'center',
+    marginBottom: 5,
   },
   button: {
-    marginTop: 5,
     marginLeft: 2,
-    //alignSelf: 'center',
   },
-  gradient: {
-    width: 230,
+  /*gradient: {
+    width: 240,
     height: 130,
     borderRadius: 6,
     alignItems: 'center',
-    //justifyContent: 'center',
+  },*/
+  pregnancyInfos: {
+    width: 220,
+    height: 150,
+    borderRadius: 6,
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
+  virtualTourView: {
+    marginLeft: 10,
+    width: 160,
+    height: 150,
+    borderRadius: 6,
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
   viewCenter: {
     flexDirection: 'row',
-    //width: '80%',
     marginBottom: 12,
   },
-  elevation: {
-    elevation: 20,
-    shadowColor: '#52006A',
-  },
-  viewEstimate: {
-    marginTop: 5,
-    backgroundColor: 'white',
-    width: 150,
-    height: 130,
-    borderRadius: 6,
-    marginLeft: 10,
-    alignItems: 'center',
-    borderWidth: 2,
-    //borderColor: '#858484',
-    borderColor: '#C99EFF',
 
-
-  },
   viewButton1: {
     marginLeft: 2,
-    //alignSelf: 'center',
   },
   viewButton2: {
-    marginTop: 13,
+    marginTop: 8,
     alignItems: 'center',
   },
   buttonText: {
     fontFamily: 'MontserratSemiBold',
-    fontSize: 18,
-    //fontSize: 10,
-    marginRight: 8,
-    marginTop: 12,
-    marginBottom: 10,
-    color: 'black',
-  },
-  buttonText2: {
-    fontFamily: 'MontserratMedium',
     fontSize: 16,
-    marginRight: 20,
+    marginRight: 8,
+    marginTop: 3,
+    marginBottom: 2,
     color: 'black',
   },
-  buttonText3: {
-    fontFamily: 'MontserratMedium',
-    fontSize: 12,
-    marginBottom: 5,
-    color: 'black',
+  valueCircleProgress: {
+    fontFamily: 'MontserratBold',
+    fontSize: 16,
   },
+  suffixCircleProgress: {
+    fontFamily: 'MontserratBold',
+    fontSize: 15,
+  },
+  titleCircleProgress: {
+    fontFamily: 'MontserratBold',
+    fontSize: 11,
+    marginBottom: 10
+  },
+
   estimateText: {
     fontFamily: 'MontserratSemiBold',
     fontSize: 17,
@@ -174,25 +163,44 @@ export const styles = StyleSheet.create({
     paddingTop: 2,
     alignSelf: 'center',
   },
-  feedTitle: {
+  feedText: {
     fontFamily: 'MontserratMedium',
-    marginTop: 5,
+    fontSize: 15,
     marginLeft: 3,
+    marginBottom: 12,
+  },
+  feedTitle: {
+    fontFamily: 'MontserratSemiBold',
+    fontSize: 18,
+    marginLeft: 6,
   },
   feedImages: {
-    width: width * 0.2,
-    height: width / 4,
+    width: width * 0.95,
+    height: width / 2,
     borderRadius: 6,
+    marginBottom: 8,
   },
   feedViewListStyle: {
-    //backgroundColor: 'white',
-    width: width * 0.2,
-    height: width / 4,
-    marginHorizontal: 5,
-    marginVertical: 10,
-    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 6,
+    width: width * 0.95,
+    height: width * 0.8,
+    marginBottom: 20,
+  },
+  feedContainer: {
+    flex: 1,
+    //flexDirection: 'column',
     justifyContent: 'center',
-    verticalAlign: 'center',
+    marginBottom: 15,
+  },
+  dataFeed: {
+    fontFamily: 'MontserratMedium',
+    fontSize: 13,
+    alignItems: 'flex-end',
+  },
+  dataFeedView: {
+    marginLeft: 8,
+    //alignItems: 'flex-end',
   },
   dicaView: {
     backgroundColor: 'white',
@@ -211,6 +219,40 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     marginLeft: 10,
 
+  },
+  modalBackground: {
+    backgroundColor:"rgba(24, 24, 24, 0.6)",
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalCalcule: {
+    backgroundColor: "#FAFAFA",
+    width: "90%",
+    height: "85%",
+    //paddingTop: 24,
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+  },
+  modalTextCalculeTitle: {
+    fontFamily: 'MontserratBold',
+    fontSize: 22,
+    marginBottom: 8,
+  },
+  modalTextClose: {
+    fontFamily: 'MontserratSemiBold',
+    fontSize: 16,
+  },
+  closeIcon: {
+    width: width * 0.5,
+    height: width / 10,
+    backgroundColor: '#EB9F63', 
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+    
   },
 
 })

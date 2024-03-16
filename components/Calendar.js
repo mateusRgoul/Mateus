@@ -1,52 +1,62 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { styles } from '../styles/Styles';
+import { LinearGradient } from 'react-native-svg';
+import moment from 'moment';
 
-const DATA=[
+const DATA = [
     {
         id: '1',
-        info: ['Dom', '16'],
+        info: ['Sex', '01'],
     },
     {
         id: '2',
-        info: ['Seg', '17'],
+        info: ['Sab', '02'],
     },
     {
         id: '3',
-        info: ['Ter', '18'],
+        info: ['Dom', '03'],
     },
     {
         id: '4',
-        info: ['Qua', '19'],
+        info: ['Seg', '04'],
     },
     {
         id: '5',
-        info: ['Qui', '20'],
+        info: ['Ter', '05'],
     },
     {
         id: '6',
-        info: ['Sex', '21'],
+        info: ['Qua', '06'],
     },
     {
         id: '7',
-        info: ['Sáb', '22'],
+        info: ['Qui', '07'],
     },
     {
         id: '8',
-        info: ['Dom', '23'],
+        info: ['Sex', '08'],
     },
     {
         id: '9',
-        info: ['Seg', '24'],
+        info: ['Sab', '09'],
     },
     {
         id: '10',
-        info: ['Ter', '25'],
+        info: ['Dom', '10'],
+    },
+    {
+        id: '11',
+        info: ['Seg', '11'],
     }
 ]
 
+const getCurrentDay = () => {
+    return moment().format('DD');
+};
 
-export default function(){
+export default function () {
+    const currentDay = getCurrentDay();
     return (
         <View style={styles.ListStyle}>
             <FlatList
@@ -58,16 +68,20 @@ export default function(){
                 //scrollEventThrottle={16}
                 //decelerationRate={'fast'}
                 renderItem={({ item }) => (
-                    <View style={styles.calendarViewListStyle}>
-                        <Text style={styles.dayText}>{item.info[0]}
-                        {'\n'}
-                        </Text>
-                        <Text style={styles.numberText}>{item.info[1]}</Text>
-                    </View>
-                    
+                    <TouchableOpacity>
+                        <View style={{ ...styles.calendarViewListStyle, backgroundColor: item.info[1] === currentDay ? '#EB9F63' : '#FFFFFF' }}>
+                            <Text style={styles.dayText}>{item.info[0]}
+                                {'\n'}
+                            </Text>
+                            <Text style={styles.numberText}>{item.info[1]}</Text>
+                        </View>
+                    </TouchableOpacity>
+
+
                 )}
-            
+
             />
         </View>
+
     )
 }
