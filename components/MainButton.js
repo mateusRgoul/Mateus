@@ -1,41 +1,42 @@
 
-import { React, useState } from 'react';
+import React, { useState } from 'react'; 
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { styles } from '../styles/Styles';
 import * as Progress from 'react-native-progress';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
-export default function () {
-    const [progressValue, setProgress] = useState(0.2)
+export default function ({ handleOpenDPP }) {
 
-    const GradientButton = ({ weeksLeft, trimester, weeksCount }) => (
-        <LinearGradient colors={['#A2DEFF', '#C99EFF']}
-            start={[0.0, 2]}
-            end={[1.5, 1.5]}
-            style={styles.gradient} >
-            <TouchableOpacity style={styles.button}>
-                <View style={styles.viewButton1}>
-                    <Text style={styles.buttonText}>{weeksLeft} semanas restantes</Text>
-                    <Text style={styles.buttonText2}>{trimester}º trimestre</Text>
-                </View>
+    const DPP = ({ weeksLeft, trimester }) => (
+        <TouchableOpacity style={styles.button} onPress={handleOpenDPP}>
+            <View style={styles.viewButton1}>
+                <Text style={styles.buttonText}>{weeksLeft} semanas restantes</Text>
+            </View>
 
-                <View style={styles.viewButton2}>
-                    <Text style={styles.buttonText3}>Você está grávida de {weeksCount} semanas</Text>
-                    <Progress.Bar
-                        progress={progressValue}
-                        width={200}
-                        height={6}
-                        color='#FAFAFA'
-                        borderColor='white'
-                        borderWidth={0.8}
-                    />
-                </View>
-            </TouchableOpacity>
-        </LinearGradient>
+            <View style={styles.viewButton2}>
+
+                <CircularProgress
+                    value={trimester}
+                    progressValueStyle={styles.valueCircleProgress}
+                    valueSuffix={'º'}
+                    valueSuffixStyle={styles.suffixCircleProgress}
+                    title={'TRIMESTRE'}
+                    titleStyle={styles.titleCircleProgress}
+                    radius={50}
+                    initialValue={0}
+                    activeStrokeColor={'#EB9F63'}
+                    //rotation={360}
+                    maxValue={3}
+                />
+            </View>
+
+        </TouchableOpacity>
+
     )
     return (
-        <View>
-            <GradientButton weeksLeft="28" trimester='2' weeksCount='06' />
+        <View style={styles.pregnancyInfos}>
+            <DPP weeksLeft="28" trimester='1' />
         </View>
     )
 }
